@@ -1,0 +1,81 @@
+
+.mapDiv {
+    display: flex;
+}
+
+.cards {
+    margin: 0.5em;
+}
+
+.active {
+    background: #777;
+}
+header {
+    background-image: url("header-background.png");
+    background-color: #cccccc;
+    color: #ffffff;
+    height: 40px;
+    padding: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    top: -34px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.groupUp {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    padding: 1px;
+}
+
+.checklistItem {
+    display: flex;
+    padding: 7px;
+    background-color: red;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    border: solid black 2px;
+}
+
+.checklistItem:hover {
+    background-color: rgb(165, 2, 2);
+    cursor: pointer;
+}
+
+#currentTime {
+    font-size: x-large;
+    margin-left: 85%;
+    position: relative;
+    top: -88px;
+    padding-right: 10px;
+    margin-right: -54px;
+}
+
+@media only screen and (max-width: 600px) {
+    #currentTime {
+        top: -105px;
+    }
+}
