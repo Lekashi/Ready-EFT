@@ -59,7 +59,15 @@ h2 {
 
 #currentTime {
     font-size: x-large;
-    margin-left: 90%;
+    margin-left: 85%;
     position: relative;
     top: -88px;
+    padding-right: 10px;
+    margin-right: -54px;
+}
+
+@media only screen and (max-width: 600px) {
+    #currentTime {
+        top: -105px;
+    }
 }
