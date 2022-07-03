@@ -26,6 +26,6 @@ email:lekashigithub@gmail.com
 
 ## Links:
 
-[Link to Github Repo](https://github.com/Lekashi/password-generator "Link to Github Repo")
+[Link to Github Repo](https://github.com/Lekashi/Ready-EFT "Link to Github Repo")
 
-[Link to Website](https://lekashi.github.io/password-generator/ "Link to Website")
+[Link to Website](https://lekashi.github.io/Ready-EFT/ "Link to Website")
