@@ -51,20 +51,6 @@ h2 {
     padding: 1px;
 }
 
-.checklistItem {
-    display: flex;
-    padding: 7px;
-    background-color: red;
-    border-radius: 3px;
-    margin-bottom: 5px;
-    border: solid black 2px;
-}
-
-.checklistItem:hover {
-    background-color: rgb(165, 2, 2);
-    cursor: pointer;
-}
-
 #currentTime {
     font-size: x-large;
     margin-left: 85%;
