@@ -8,29 +8,36 @@ body {
     color: var(--text-color);
 }
 
+header {
+    background-image: url("header-background.png");
+    background-color: #cccccc;
+    color: #ffffff;
+    height: 40px;
+    padding: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 25px;
+}
+
 h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
+    position: relative;
+    top: -34px;
 }
 
-nav {
+h2 {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
     justify-content: center;
 }
 
-
-h1{
+.groupUp {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-content: center;
-    justify-content: center;
 }
 
 .checklist {
@@ -38,4 +45,21 @@ h1{
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
+    align-items: center;
+    padding: 1px;
+}
+
+.checklistItem {
+    display: flex;
+    padding: 7px;
+    background-color: red;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+#currentTime {
+    font-size: x-large;
+    margin-left: 90%;
+    position: relative;
+    top: -88px;
 }
