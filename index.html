@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,8 @@
     <title>Ready EFT</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
-<body data-theme="dark">
+
+<body class="p-3 mb-2 bg-dark text-white">
     <header>
         <h1>Ready EFT</h1>
         <h3 id="currentTime"></h3>
@@ -15,6 +17,7 @@
     <nav>
         <div class="groupUp">
             <button id="makeGroup">Host a group</Button>
+            <div class="groupDiv"></div>
             <input type="text" id="groupId" placeholder="Enter Group ID">
             <button id="joinGroup">Join a group</button>
         </div>
@@ -31,8 +34,102 @@
         <li class="checklistItem">Check Gamma Case</li>
     </ul>
 
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="mapDiv">
+                    <div class="card">
+                        <img class="card-img-top" src="./assets/imgs/customs-map.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="./assets/imgs/customs-map.jpg" class="btn btn-primary">Open Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="mapDiv">
+                    <div class="card">
+                        <img class="card-img-top" src="./assets/imgs/interchange-map.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="./assets/imgs/interchange-map.jpg" class="btn btn-primary">Open Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="mapDiv">
+                    <div class="card">
+                        <img class="card-img-top" src="./assets/imgs/lighthouse-map.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="./assets/imgs/lighthouse-map.jpg" class="btn btn-primary">Open Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="mapDiv">
+                    <div class="card">
+                        <img class="card-img-top" src="./assets/imgs/woods-map.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="./assets/imgs/woods-map.jpg" class="btn btn-primary">Open Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="mapDiv">
+                    <div class="card">
+                        <img class="card-img-top" src="./assets/imgs/shoreline-map.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="./assets/imgs/shoreline-map.jpg" class="btn btn-primary">Open Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="mapDiv">
+                    <div class="card">
+                        <img class="card-img-top" src="./assets/imgs/reserve-map.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="./assets/imgs/reserve-map.jpg" class="btn btn-primary">Open Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="./assets/js/javascript.js"></script>
 </body>
+
 </html>
