@@ -14,7 +14,8 @@ This project is made to speed up the time out of raid with giving the user a hel
 The purpose of this program is to help the user through the game and hopefully speed up the process of the game to make it a more enjoyable.
 ***
 ## Contributing User(s)
-Lekashi
+Lekashi     
+ChrisDeng1999
 ***
 ## License
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
