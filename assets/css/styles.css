@@ -3,6 +3,11 @@
     src: url('RubikMoonrocks-Regular.ttf');
   }
 
+  @font-face {
+    font-family: RobotoCondensed-Regular;
+    src: url('RobotoCondensed-Regular.ttf');
+  }
+
   h1#head1 {
     font-family: 'rubikMoonrocks';
     font-size: 120px;
@@ -14,6 +19,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'RobotoCondensed-Regular';
   }
   
   /* Gives the body element a parent height to compare against */
