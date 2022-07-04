@@ -4,9 +4,9 @@ var btnIndex = 9;
 startRaidUp(false);
 
 
-for (let i = 1; i < btnIndex; i++) {   
+for (let i = 1; i < btnIndex; i++) {
     checkLsArr[i] = false;
-    $(`#checklistitem${i}`).click(function(event) {
+    $(`#checklistitem${i}`).click(function (event) {
         var idClicked = event.target.id;
         if ($(`#${idClicked}`).hasClass("btn btn-outline-danger mb-2") === true) {
             $(`#${idClicked}`).removeClass("btn btn-outline-danger mb-2");
@@ -26,15 +26,16 @@ for (let i = 1; i < btnIndex; i++) {
 
 function startRaidUp(res) {
     if (res === true) {
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#startMatchBtn').delay(1).fadeIn('fast');
         });
-        console.log("All boxes green");
+        $("#startMatchBtn").click(function () {
+            alert("Handler for .click() called.");
+        });
     } else {
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#startMatchBtn').delay(1).fadeOut('fast');
         });
-        console.log("Not All Green boxes");
     }
 }
 
