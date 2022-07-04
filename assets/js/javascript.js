@@ -1,10 +1,11 @@
 var totalSeconds = 0;
-var timerVariable = setInterval(raidTimer, 1000);
+let timerVariable;
 var checkLsArr = [true]
 let checker = arr => arr.every(Boolean);
 var btnIndex = 9;
 startRaidBtn(false);
 
+// This for loop is for checking if all the checklist items are green || true
 
 for (let i = 1; i < btnIndex; i++) {
     checkLsArr[i] = false;
@@ -14,17 +15,18 @@ for (let i = 1; i < btnIndex; i++) {
             $(`#${idClicked}`).removeClass("btn btn-outline-danger mb-2");
             $(`#${idClicked}`).addClass("btn btn-outline-success mb-2");
             checkLsArr[i] = true;
-            let checker = arr => arr.every(Boolean);
             startRaidBtn(checker(checkLsArr));
         } else {
             $(`#${idClicked}`).removeClass("btn btn-outline-success mb-2");
             $(`#${idClicked}`).addClass("btn btn-outline-danger mb-2");
             checkLsArr[i] = false;
-            let checker = arr => arr.every(Boolean);
             startRaidBtn(checker(checkLsArr));
         }
     });
 };
+
+
+// startRaidBtn function is for showing the 
 
 function startRaidBtn(res) {
     if (res === true) {
@@ -48,11 +50,21 @@ function startRaidBtn(res) {
 }
 
 function displayStats() {
-    alert("Handler for .click() called.");
+    timerVariable = setInterval(raidTimer, 1000);
+    $(document).ready(function () {
+        $('#checkItems').delay(1).fadeOut('fast');
+    });
+    $(document).ready(function () {
+        $('#startMatchBtn').delay(1).fadeOut('fast');
+    });
+    $("#raidReset").click(function () {
+        resetJs();
+    });
     raidTimer();
 }
 
 function raidTimer() {
+    console.log(totalSeconds);
     ++totalSeconds;
     var hour = Math.floor(totalSeconds / 3600);
     var minute = Math.floor((totalSeconds - hour * 3600) / 60);
@@ -60,9 +72,28 @@ function raidTimer() {
     document.getElementById("count_up_timer").innerHTML = hour + ":" + minute + ":" + seconds;
 }
 
-setInterval(currentTime, 1000);
-
 function currentTime() {
     var displayedTime = moment().format("LTS");
     $("#currentTime").text(displayedTime);
+}
+
+function resetJs() {
+    console.log("reset started");
+    for (let i = 1; i < btnIndex; i++) {
+        $(`#checklistitem${i}`).removeClass("btn btn-outline-success mb-2");
+        $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
+        checkLsArr[i] = false;
+    }
+    console.log(totalSeconds);
+    clearInterval(timerVariable);
+    console.log("cleared interval");
+    $(document).ready(function () {
+        $('#raidTime').delay(1).fadeOut('fast');
+    });
+    $(document).ready(function () {
+        $('#checkItems').delay(1).fadeIn('fast');
+    });
+    document.getElementById("count_up_timer").innerHTML = 0;
+    totalSeconds = 0;
+    timerVariable = null;
 }
