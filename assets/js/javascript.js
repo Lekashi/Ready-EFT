@@ -11,17 +11,24 @@ for (let i = 1; i < btnIndex; i++) {
             $(`#${idClicked}`).addClass("btn btn-outline-success mb-2");
             checkLsArr[i] = true;
             let checker = arr => arr.every(Boolean);
-            console.log(checker(checkLsArr));
+            startUp(checker(checkLsArr));
         } else {
             $(`#${idClicked}`).removeClass("btn btn-outline-success mb-2");
             $(`#${idClicked}`).addClass("btn btn-outline-danger mb-2");
             checkLsArr[i] = false;
             let checker = arr => arr.every(Boolean);
-            console.log(checker(checkLsArr));
+            startUp(checker(checkLsArr));
         }
-        console.log(checkLsArr);
     });
 };
+
+function startUp(res) {
+    if (res === true) {
+        console.log("All boxes green");
+    } else {
+        console.log("Not All Green boxes");
+    }
+}
 
 setInterval(currentTime, 1000);
 
