@@ -1,3 +1,53 @@
+@font-face {
+    font-family: rubikMoonrocks;
+    src: url('RubikMoonrocks-Regular.ttf');
+  }
+
+  h1#head1 {
+    font-family: 'rubikMoonrocks';
+    font-size: 120px;
+    top: -154px;
+    }
+
+  /* Resets the box size of every element */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Gives the body element a parent height to compare against */
+  html {
+    height: 100%;
+  }
+  
+  body {
+    min-height: 100%;
+    line-height: 1;
+    font-family: sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+  }
+  
+  /* Matches the font of special elements to the rest of the page */
+  input, select, option, optgroup, textarea, button,
+  pre, code {
+    font-size: 100%;
+    font-family: inherit;
+  }
+  
+  /* Removes default bullet points from lists */
+  ol, ul {
+    list-style: none;
+  }
+
+  /* End of style reset */
+
+  h1 {
+    font-size: 120px;
+}
 
 .mapDiv {
     display: flex;
@@ -10,14 +60,15 @@
 .active {
     background: #777;
 }
+
 header {
     background-image: url("header-background.png");
     background-color: #cccccc;
     color: #ffffff;
     height: 40px;
-    padding: 30px;
+    padding: 164px;
     padding-bottom: 0px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 h1 {
@@ -28,6 +79,7 @@ h1 {
     justify-content: center;
     position: relative;
     top: -34px;
+    font-family: 'rubikMoonrocks';
 }
 
 h2 {
@@ -53,15 +105,11 @@ h2 {
 
 #currentTime {
     font-size: x-large;
-    margin-left: 85%;
     position: relative;
-    top: -88px;
-    padding-right: 10px;
+    top: -248px;
     margin-right: -54px;
 }
 
 @media only screen and (max-width: 600px) {
-    #currentTime {
-        top: -105px;
-    }
+
 }
