@@ -2,12 +2,8 @@ var checkLsArr = [true]
 let checker = arr => arr.every(Boolean);
 var btnIndex = 9;
 
-for (let i = 1; i < btnIndex; i++) {
-    checkLsArr[i] = false;
-}
-
-
 for (let i = 1; i < btnIndex; i++) {   
+    checkLsArr[i] = false;
     $(`#checklistitem${i}`).click(function(event) {
         var idClicked = event.target.id;
         if ($(`#${idClicked}`).hasClass("btn btn-outline-danger mb-2") === true) {
