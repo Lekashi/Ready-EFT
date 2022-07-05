@@ -116,6 +116,22 @@ h2 {
     margin-right: -54px;
 }
 
+#checkItems {
+  display: flex;
+  flex-direction: column;
+}
+
+#raidTime {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+div#count_up_timer {
+  font-size: 60px;
+}
+
 @media only screen and (max-width: 600px) {
 
 }
