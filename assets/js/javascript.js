@@ -26,18 +26,12 @@ for (let i = 1; i < btnIndex; i++) {
 };
 
 
-// startRaidBtn function is for showing the 
+// startRaidBtn function is for checking if you have all checkboxes are red showing 
 
 function startRaidBtn(res) {
     if (res === true) {
         $(document).ready(function () {
             $('#startMatchBtn').delay(1).fadeIn('fast');
-        });
-        $("#startMatchBtn").click(function () {
-            displayStats();
-            $(document).ready(function () {
-                $('#raidTime').delay(1).fadeIn('fast');
-            });
         });
     } else {
         $(document).ready(function () {
@@ -49,27 +43,44 @@ function startRaidBtn(res) {
     }
 }
 
+// event lisnter for the start matchmaking button
+
+$("#startMatchBtn").click(function () {
+   raidTimer();
+   displayStats();
+});
+
+// This function shows the document start raid button that start the timer
+
 function displayStats() {
-    timerVariable = setInterval(raidTimer, 1000);
     $(document).ready(function () {
         $('#checkItems').delay(1).fadeOut('fast');
+        $(document).ready(function () {
+            $('#raidTime').delay(1).fadeIn('fast');
+        });
     });
     $(document).ready(function () {
         $('#startMatchBtn').delay(1).fadeOut('fast');
     });
-    $("#raidReset").click(function () {
-        resetJs();
-    });
-    raidTimer();
 }
 
+// Event listner for after the timer started
+
+$("#raidReset").click(function () {
+    resetJs();
+});
+
+// Start the raid timer function
+
 function raidTimer() {
-    console.log(totalSeconds);
-    ++totalSeconds;
-    var hour = Math.floor(totalSeconds / 3600);
-    var minute = Math.floor((totalSeconds - hour * 3600) / 60);
-    var seconds = totalSeconds - (hour * 3600 + minute * 60);
-    document.getElementById("count_up_timer").innerHTML = hour + ":" + minute + ":" + seconds;
+    timerVariable = setInterval(function() {
+        console.log(totalSeconds);
+        ++totalSeconds;
+        var hour = Math.floor(totalSeconds / 3600);
+        var minute = Math.floor((totalSeconds - hour * 3600) / 60);
+        var seconds = totalSeconds - (hour * 3600 + minute * 60);
+        document.getElementById("count_up_timer").innerHTML = hour + ":" + minute + ":" + seconds;
+    }, 1000);
 }
 
 function currentTime() {
@@ -84,16 +95,13 @@ function resetJs() {
         $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
         checkLsArr[i] = false;
     }
-    console.log(totalSeconds);
     clearInterval(timerVariable);
-    console.log("cleared interval");
     $(document).ready(function () {
         $('#raidTime').delay(1).fadeOut('fast');
     });
     $(document).ready(function () {
         $('#checkItems').delay(1).fadeIn('fast');
     });
-    document.getElementById("count_up_timer").innerHTML = 0;
+    document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
-    timerVariable = null;
 }
