@@ -122,6 +122,12 @@ function statDead() {
     }
     clearInterval(timerVariable);
     $(document).ready(function () {
+        $('#raidReset').delay(1).fadeIn('fast');
+    });
+    $(document).ready(function () {
+        $('#raidDeploying').delay(1).fadeIn('fast');
+    });
+    $(document).ready(function () {
         $('#raidTime').delay(1).fadeOut('fast');
     });
     $(document).ready(function () {
@@ -140,6 +146,12 @@ function statLive() {
     }
     clearInterval(timerVariable);
     $(document).ready(function () {
+        $('#raidDeploying').delay(1).fadeIn('fast');
+    });
+    $(document).ready(function () {
+        $('#raidReset').delay(1).fadeIn('fast');
+    });
+    $(document).ready(function () {
         $('#raidTime').delay(1).fadeOut('fast');
     });
     $(document).ready(function () {
@@ -151,11 +163,6 @@ function statLive() {
 
 function deployingBtn() {
     console.log("deployingBtn started");
-    for (let i = 1; i < btnIndex; i++) {
-        $(`#checklistitem${i}`).removeClass("btn btn-outline-success mb-2");
-        $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
-        checkLsArr[i] = false;
-    }
     $(document).ready(function () {
         $('#raidDeploying').delay(1).fadeOut('fast');
     });
