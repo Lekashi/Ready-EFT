@@ -22,28 +22,42 @@
             <button class="btn btn-outline-primary mt-2 mb-3" id="joinGroup">Join a group</button>
         </div>
     </nav>
-    <ul class="checklist">
-        <div id="checkItems">
-            <h2>Checklist</h2>
-            <li class="btn btn-outline-danger mb-2" id="checklistitem1">Healed Character</li>
-            <li class="btn btn-outline-danger mb-2" id="checklistitem2">Food And Water</li>
-            <li class="btn btn-outline-danger mb-2" id="checklistitem3">Gun with Ammo</li>
-            <li class="btn btn-outline-danger mb-2" id="checklistitem4">Armor, Headset, Helmet and repair</li>
-            <li class="btn btn-outline-danger mb-2" id="checklistitem5">Repair gun</li>
-            <li class="btn btn-outline-danger mb-2" id="checklistitem6">Have necessary medical supplies</li>
-            <li class="btn btn-outline-danger mb-2" id="checklistitem7">Check Quest Items</li>
-            <li class="btn btn-outline-danger mb-2" id="checklistitem8">Check Gamma Case</li>
+    <div id="mainPage">
+        <div id="stat1">
+            <h2 id="timeOfRaid"></h2>
         </div>
-        <div id="raidTime">
-            <button class="btn btn-outline-success btn-lg mb-2" id="raidStatLive">Lived</button>
-            <button class="btn btn-outline-danger btn-lg mb-2" id="raidStatDead">Died</button>
-            <button class="btn btn-outline-light btn-lg mb-2" id="raidDeploying">Deploying</button>
-            <div id="count_up_timer">00:00:00</div>
-            <button class="btn btn-outline-info btn-lg mb-2" id="raidReset">Canceled Queue</button>
+        <div class="checklist">
+            <div id="checkItems">
+                <h2>Checklist</h2>
+                <li class="btn btn-outline-danger mb-2" id="checklistitem1">Healed Character</li>
+                <li class="btn btn-outline-danger mb-2" id="checklistitem2">Food And Water</li>
+                <li class="btn btn-outline-danger mb-2" id="checklistitem3">Gun with Ammo</li>
+                <li class="btn btn-outline-danger mb-2" id="checklistitem4">Armor, Headset, Helmet and repair</li>
+                <li class="btn btn-outline-danger mb-2" id="checklistitem5">Repair gun</li>
+                <li class="btn btn-outline-danger mb-2" id="checklistitem6">Have necessary medical supplies</li>
+                <li class="btn btn-outline-danger mb-2" id="checklistitem7">Check Quest Items</li>
+                <li class="btn btn-outline-danger mb-2" id="checklistitem8">Check Gamma Case</li>
+            </div>
+            <div id="raidTime">
+                <button class="btn btn-outline-success btn-lg mb-2" id="raidStatLive">Lived</button>
+                <button class="btn btn-outline-danger btn-lg mb-2" id="raidStatDead">Died</button>
+                <button class="btn btn-outline-light btn-lg mb-2" id="raidDeploying">Deploying</button>
+                <div id="count_up_timer">00:00:00</div>
+                <button class="btn btn-outline-info btn-lg mb-2" id="raidReset">Canceled Queue</button>
+            </div>
+            <li class="btn btn-outline-danger mb-2" id="startMatchBtn">Start Matching</li>
         </div>
-        <li class="btn btn-outline-danger mb-2" id="startMatchBtn">Start Matching</li>
-    </ul>
-
+        <div class="stat2">
+            <h4 id="deployingTime"></h4>
+        </div>
+    </div>
+    
+    <div id="secondaryBtns">
+        <button class="btn btn-outline-info btn-lg mb-4"  id="showStats">Show Stats</button>
+        <button class="btn btn-outline-light btn-lg mb-4" id="toggleMapBtn">Toggle Map</button>
+        <button class="btn btn-outline-info btn-lg mb-4"  id="pastRaids">Recent Raids</button>
+    </div>
+    
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -122,17 +136,17 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
     <script src="./assets/js/javascript.js"></script>
 </body>
 
