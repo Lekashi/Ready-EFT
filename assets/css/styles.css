@@ -1,119 +1,131 @@
 @font-face {
-    font-family: rubikMoonrocks;
-    src: url('RubikMoonrocks-Regular.ttf');
-  }
+  font-family: rubikMoonrocks;
+  src: url('RubikMoonrocks-Regular.ttf');
+}
 
-  @font-face {
-    font-family: RobotoCondensed-Regular;
-    src: url('RobotoCondensed-Regular.ttf');
-  }
+@font-face {
+  font-family: RobotoCondensed-Regular;
+  src: url('RobotoCondensed-Regular.ttf');
+}
 
-  h1#head1 {
-    font-family: 'rubikMoonrocks';
-    font-size: 120px;
-    top: -154px;
-    }
+#head1 {
+  font-family: 'rubikMoonrocks';
+  font-size: 120px;
+  top: -154px;
+}
 
-  /* Resets the box size of every element */
+/* Resets the box size of every element */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'RobotoCondensed-Regular';
-  }
-  
-  /* Gives the body element a parent height to compare against */
-  html {
-    height: 100%;
-  }
-  
-  body {
-    min-height: 100%;
-    line-height: 1;
-    font-family: sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-size: 100%;
-  }
-  
-  /* Matches the font of special elements to the rest of the page */
-  input, select, option, optgroup, textarea, button,
-  pre, code {
-    font-size: 100%;
-    font-family: inherit;
-  }
-  
-  /* Removes default bullet points from lists */
-  ol, ul {
-    list-style: none;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'RobotoCondensed-Regular';
+}
 
-  /* End of style reset */
+/* Gives the body element a parent height to compare against */
+html {
+  height: 100%;
+}
 
-  h1 {
-    font-size: 120px;
+body {
+  min-height: 100%;
+  line-height: 1;
+  font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+
+/* Matches the font of special elements to the rest of the page */
+input,
+select,
+option,
+optgroup,
+textarea,
+button,
+pre,
+code {
+  font-size: 100%;
+  font-family: inherit;
+}
+
+/* Removes default bullet points from lists */
+ol,
+ul {
+  list-style: none;
+}
+
+/* End of style reset */
+
+h1 {
+  font-size: 120px;
 }
 
 .mapDiv {
-    display: flex;
+  display: flex;
 }
 
 .cards {
-    margin: 0.5em;
+  margin: 0.5em;
 }
 
 .active {
-    background: #777;
+  background: #777;
 }
 
 header {
-    background-image: url("header-background.png");
-    background-color: #cccccc;
-    color: #ffffff;
-    height: 40px;
-    padding: 164px;
-    padding-bottom: 0px;
-    margin-bottom: 30px;
+  background-image: url("header-background.png");
+  background-color: #cccccc;
+  color: #ffffff;
+  height: 40px;
+  padding: 164px;
+  padding-bottom: 0px;
+  margin-bottom: 30px;
 }
 
 h1 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    position: relative;
-    top: -34px;
-    font-family: 'rubikMoonrocks';
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+  top: -34px;
+  font-family: 'rubikMoonrocks';
 }
 
 h2 {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .groupUp {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .checklist {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    padding: 1px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  padding: 1px;
 }
 
 #currentTime {
-    font-size: x-large;
-    position: relative;
-    top: -248px;
-    margin-right: -54px;
+  font-size: x-large;
+  position: relative;
+  top: -248px;
+  margin-right: -54px;
 }
 
 #checkItems {
@@ -128,10 +140,16 @@ h2 {
   padding: 20px;
 }
 
-div#count_up_timer {
+#secondaryBtns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#count_up_timer {
   font-size: 60px;
+  width: 200px;
+  padding: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-
-}
+@media only screen and (max-width: 600px) {}
