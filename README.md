@@ -13,7 +13,7 @@ This project is made to speed up the time out of raid with giving the user a hel
 ## Usage
 The purpose of this program is to help the user through the game and hopefully speed up the process of the game to make it a more enjoyable.
 ***
-## Contributing User(s)
+## Contributing Users
 Lekashi     
 ChrisDeng1999
 ***
