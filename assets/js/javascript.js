@@ -66,6 +66,15 @@ function displayStats() {
 
 // Event listner for after the timer started
 
+$("#raidStatDead").click(function () {
+    statDead();
+});
+$("#raidStatLive").click(function () {
+    statLive();
+});
+$("#raidDeploying").click(function () {
+    deployingBtn();
+});
 $("#raidReset").click(function () {
     resetJs();
 });
@@ -90,6 +99,22 @@ function currentTime() {
 
 function resetJs() {
     console.log("reset started");
+    clearInterval(timerVariable);
+    $(document).ready(function () {
+        $('#raidTime').delay(1).fadeOut('fast');
+    });
+    $(document).ready(function () {
+        $('#startMatchBtn').delay(1).fadeIn('fast');
+    });
+    $(document).ready(function () {
+        $('#checkItems').delay(1).fadeIn('fast');
+    });
+    document.getElementById("count_up_timer").innerHTML = "0:0:0";
+    totalSeconds = 0;
+}
+
+function statDead() {
+    console.log("statDead started");
     for (let i = 1; i < btnIndex; i++) {
         $(`#checklistitem${i}`).removeClass("btn btn-outline-success mb-2");
         $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
@@ -104,4 +129,37 @@ function resetJs() {
     });
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
+}
+
+function statLive() {
+    console.log("statLive started");
+    for (let i = 1; i < btnIndex; i++) {
+        $(`#checklistitem${i}`).removeClass("btn btn-outline-success mb-2");
+        $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
+        checkLsArr[i] = false;
+    }
+    clearInterval(timerVariable);
+    $(document).ready(function () {
+        $('#raidTime').delay(1).fadeOut('fast');
+    });
+    $(document).ready(function () {
+        $('#checkItems').delay(1).fadeIn('fast');
+    });
+    document.getElementById("count_up_timer").innerHTML = "0:0:0";
+    totalSeconds = 0;
+}
+
+function deployingBtn() {
+    console.log("deployingBtn started");
+    for (let i = 1; i < btnIndex; i++) {
+        $(`#checklistitem${i}`).removeClass("btn btn-outline-success mb-2");
+        $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
+        checkLsArr[i] = false;
+    }
+    $(document).ready(function () {
+        $('#raidDeploying').delay(1).fadeOut('fast');
+    });
+    $(document).ready(function () {
+        $('#raidReset').delay(1).fadeOut('fast');
+    });
 }
