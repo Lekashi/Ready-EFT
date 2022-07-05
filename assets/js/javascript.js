@@ -5,6 +5,7 @@ let checker = arr => arr.every(Boolean);
 var btnIndex = 9;
 startRaidBtn(false);
 
+
 // This for loop is for checking if all the checklist items are green || true
 
 for (let i = 1; i < btnIndex; i++) {
@@ -46,8 +47,8 @@ function startRaidBtn(res) {
 // event lisnter for the start matchmaking button
 
 $("#startMatchBtn").click(function () {
-   raidTimer();
-   displayStats();
+    raidTimer();
+    displayStats();
 });
 
 // This function shows the document start raid button that start the timer
@@ -67,22 +68,22 @@ function displayStats() {
 // Event listner for after the timer started
 
 $("#raidStatDead").click(function () {
-    statDead();
+    statDeadBtn();
 });
 $("#raidStatLive").click(function () {
-    statLive();
+    statLiveBtn();
 });
 $("#raidDeploying").click(function () {
     deployingBtn();
 });
 $("#raidReset").click(function () {
-    resetJs();
+    resetMatchmake();
 });
 
 // Start the raid timer function
 
 function raidTimer() {
-    timerVariable = setInterval(function() {
+    timerVariable = setInterval(function () {
         console.log(totalSeconds);
         ++totalSeconds;
         var hour = Math.floor(totalSeconds / 3600);
@@ -97,7 +98,7 @@ function currentTime() {
     $("#currentTime").text(displayedTime);
 }
 
-function resetJs() {
+function resetMatchmake() {
     console.log("reset started");
     clearInterval(timerVariable);
     $(document).ready(function () {
@@ -113,8 +114,8 @@ function resetJs() {
     totalSeconds = 0;
 }
 
-function statDead() {
-    console.log("statDead started");
+function statDeadBtn() {
+    console.log("statDeadBtn started");
     for (let i = 1; i < btnIndex; i++) {
         $(`#checklistitem${i}`).removeClass("btn btn-outline-success mb-2");
         $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
@@ -133,12 +134,13 @@ function statDead() {
     $(document).ready(function () {
         $('#checkItems').delay(1).fadeIn('fast');
     });
+    $('#deployingTime').delay(1).fadeOut('slow');
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
 
-function statLive() {
-    console.log("statLive started");
+function statLiveBtn() {
+    console.log("statLiveBtn started");
     for (let i = 1; i < btnIndex; i++) {
         $(`#checklistitem${i}`).removeClass("btn btn-outline-success mb-2");
         $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
@@ -157,6 +159,7 @@ function statLive() {
     $(document).ready(function () {
         $('#checkItems').delay(1).fadeIn('fast');
     });
+    $('#deployingTime').delay(1).fadeOut('slow');
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
@@ -169,4 +172,28 @@ function deployingBtn() {
     $(document).ready(function () {
         $('#raidReset').delay(1).fadeOut('fast');
     });
+    let deployTime = totalSeconds;
+    deployTimeDisplay(deployTime);
 }
+
+function deployTimeDisplay(res) {
+    if (res === null) {
+        $("#deployingTime").hide();
+    } else {
+        var hour = Math.floor(res / 3600);
+        var minute = Math.floor((res - hour * 3600) / 60);
+        var seconds = res - (hour * 3600 + minute * 60);
+        $("#deployingTime").text(`Deploy Time ${hour}:${minute}:${seconds}`);
+        $("#deployingTime").toggle('slow', function(){})
+    }
+}
+
+
+$("#carouselExampleFade").hide();
+$("#deployingTime").hide();
+
+
+$("#toggleMapBtn").click(function () {
+    $("#carouselExampleFade").toggle( 'slow', function(){})
+});
+
