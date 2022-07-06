@@ -6,6 +6,7 @@ var btnIndex = 9;
 startRaidBtn(false);
 
 
+
 // This for loop is for checking if all the checklist items are green || true
 
 for (let i = 1; i < btnIndex; i++) {
@@ -121,6 +122,8 @@ function statDeadBtn() {
         $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
         checkLsArr[i] = false;
     }
+    var dlStat = false;
+    raidTimeDisplay(dlStat ,totalSeconds);
     clearInterval(timerVariable);
     $(document).ready(function () {
         $('#raidReset').delay(1).fadeIn('fast');
@@ -146,6 +149,8 @@ function statLiveBtn() {
         $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
         checkLsArr[i] = false;
     }
+    var dlStat = true;
+    raidTimeDisplay(dlStat, totalSeconds);
     clearInterval(timerVariable);
     $(document).ready(function () {
         $('#raidDeploying').delay(1).fadeIn('fast');
@@ -162,6 +167,18 @@ function statLiveBtn() {
     $('#deployingTime').delay(1).fadeOut('slow');
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
+}
+
+function raidTimeDisplay(res ,time) {
+        var hour = Math.floor(time / 3600);
+        var minute = Math.floor((time - hour * 3600) / 60);
+        var seconds = time - (hour * 3600 + minute * 60);
+        var raidTime = `${hour}:${minute}:${seconds}`
+        if (res === true) {
+            $("#timeOfRaid").text(`Time of extract ${raidTime}`);
+        } else {
+            $("#timeOfRaid").text(`Time of death ${raidTime}`);
+        }
 }
 
 function deployingBtn() {
@@ -183,11 +200,11 @@ function deployTimeDisplay(res) {
         var hour = Math.floor(res / 3600);
         var minute = Math.floor((res - hour * 3600) / 60);
         var seconds = res - (hour * 3600 + minute * 60);
-        $("#deployingTime").text(`Deploy Time ${hour}:${minute}:${seconds}`);
+        var deployTime = `${hour}:${minute}:${seconds}`
+        $("#deployingTime").text(`Deploy Time ${deployTime}`);
         $("#deployingTime").toggle('slow', function(){})
     }
 }
-
 
 $("#carouselExampleFade").hide();
 $("#deployingTime").hide();

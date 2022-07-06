@@ -152,4 +152,11 @@ h2 {
   padding: 10px;
 }
 
+#mainPage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 @media only screen and (max-width: 600px) {}
