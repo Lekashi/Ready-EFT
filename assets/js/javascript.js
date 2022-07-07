@@ -1,10 +1,12 @@
 var totalSeconds = 0;
 let timerVariable;
-var checkLsArr = [true]
-let checker = arr => arr.every(Boolean);
+var deployTime;
 var btnIndex = 9;
+var oldLocItem = JSON.parse(localStorage.getItem("raids"));
+var checkLsArr = [true];
+let checker = arr => arr.every(Boolean);
+init();
 startRaidBtn(false);
-
 
 
 // This for loop is for checking if all the checklist items are green || true
@@ -85,7 +87,6 @@ $("#raidReset").click(function () {
 
 function raidTimer() {
     timerVariable = setInterval(function () {
-        console.log(totalSeconds);
         ++totalSeconds;
         var hour = Math.floor(totalSeconds / 3600);
         var minute = Math.floor((totalSeconds - hour * 3600) / 60);
@@ -100,7 +101,6 @@ function currentTime() {
 }
 
 function resetMatchmake() {
-    console.log("reset started");
     clearInterval(timerVariable);
     $(document).ready(function () {
         $('#raidTime').delay(1).fadeOut('fast');
@@ -116,14 +116,13 @@ function resetMatchmake() {
 }
 
 function statDeadBtn() {
-    console.log("statDeadBtn started");
     for (let i = 1; i < btnIndex; i++) {
         $(`#checklistitem${i}`).removeClass("btn btn-outline-success mb-2");
         $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
         checkLsArr[i] = false;
     }
     var dlStat = false;
-    raidTimeDisplay(dlStat ,totalSeconds);
+    raidTimeDisplay(dlStat, totalSeconds);
     clearInterval(timerVariable);
     $(document).ready(function () {
         $('#raidReset').delay(1).fadeIn('fast');
@@ -137,13 +136,11 @@ function statDeadBtn() {
     $(document).ready(function () {
         $('#checkItems').delay(1).fadeIn('fast');
     });
-    $('#deployingTime').delay(1).fadeOut('slow');
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
 
 function statLiveBtn() {
-    console.log("statLiveBtn started");
     for (let i = 1; i < btnIndex; i++) {
         $(`#checklistitem${i}`).removeClass("btn btn-outline-success mb-2");
         $(`#checklistitem${i}`).addClass("btn btn-outline-danger mb-2");
@@ -164,32 +161,31 @@ function statLiveBtn() {
     $(document).ready(function () {
         $('#checkItems').delay(1).fadeIn('fast');
     });
-    $('#deployingTime').delay(1).fadeOut('slow');
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
 
-function raidTimeDisplay(res ,time) {
-        var hour = Math.floor(time / 3600);
-        var minute = Math.floor((time - hour * 3600) / 60);
-        var seconds = time - (hour * 3600 + minute * 60);
-        var raidTime = `${hour}:${minute}:${seconds}`
-        if (res === true) {
-            $("#timeOfRaid").text(`Time of extract ${raidTime}`);
-        } else {
-            $("#timeOfRaid").text(`Time of death ${raidTime}`);
-        }
+function raidTimeDisplay(res, time) {
+    var hour = Math.floor(time / 3600);
+    var minute = Math.floor((time - hour * 3600) / 60);
+    var seconds = time - (hour * 3600 + minute * 60);
+    var raidTime = `${hour}:${minute}:${seconds}`
+    locStore(res, time);
+    if (res === true) {
+        $("#timeOfRaid").text(`Time of extract ${raidTime}`);
+    } else {
+        $("#timeOfRaid").text(`Time of death ${raidTime}`);
+    }
 }
 
 function deployingBtn() {
-    console.log("deployingBtn started");
     $(document).ready(function () {
         $('#raidDeploying').delay(1).fadeOut('fast');
     });
     $(document).ready(function () {
         $('#raidReset').delay(1).fadeOut('fast');
     });
-    let deployTime = totalSeconds;
+    deployTime = totalSeconds;
     deployTimeDisplay(deployTime);
 }
 
@@ -200,17 +196,44 @@ function deployTimeDisplay(res) {
         var hour = Math.floor(res / 3600);
         var minute = Math.floor((res - hour * 3600) / 60);
         var seconds = res - (hour * 3600 + minute * 60);
-        var deployTime = `${hour}:${minute}:${seconds}`
+        deployTime = `${hour}:${minute}:${seconds}`;
         $("#deployingTime").text(`Deploy Time ${deployTime}`);
-        $("#deployingTime").toggle('slow', function(){})
+    }
+}
+
+function locStore(res, time) {
+    var newLocItem =  {res, time, deployTime};
+    oldLocItem = [ ...oldLocItem, newLocItem ];
+    console.log("set item to localstorage");
+    console.log(oldLocItem);
+    localStorage.setItem('raids', JSON.stringify(oldLocItem));
+}
+
+function init() {
+    console.log(oldLocItem);
+    if (oldLocItem === null) {
+        console.log("local storage is empty");
+        oldLocItem = [];
+        return;
+    } else {
+        var hour = Math.floor(oldLocItem[oldLocItem.length - 1].time / 3600);
+        var minute = Math.floor((oldLocItem[oldLocItem.length - 1].time - hour * 3600) / 60);
+        var seconds = oldLocItem[oldLocItem.length - 1].time - (hour * 3600 + minute * 60)
+        var locTime = `${hour}:${minute}:${seconds}`;
+        console.log(oldLocItem[oldLocItem.length - 1]);
+        $("#deployingTime").text(`Deploy Time ${oldLocItem[oldLocItem.length - 1].deployTime}`);
+        if (oldLocItem[oldLocItem.length - 1].res === true) {
+            $("#timeOfRaid").text(`Time of extract ${locTime}`);
+        } else {
+            $("#timeOfRaid").text(`Time of death ${locTime}`);
+        }
     }
 }
 
 $("#carouselExampleFade").hide();
-$("#deployingTime").hide();
 
 
 $("#toggleMapBtn").click(function () {
-    $("#carouselExampleFade").toggle( 'slow', function(){})
+    $("#carouselExampleFade").toggle('slow', function () { })
 });
 
