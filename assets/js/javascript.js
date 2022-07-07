@@ -6,6 +6,7 @@ var oldLocItem = JSON.parse(localStorage.getItem("raids"));
 var checkLsArr = [true];
 let checker = arr => arr.every(Boolean);
 init();
+currentTime();
 startRaidBtn(false);
 
 
@@ -34,16 +35,11 @@ for (let i = 1; i < btnIndex; i++) {
 
 function startRaidBtn(res) {
     if (res === true) {
-        $(document).ready(function () {
             $('#startMatchBtn').delay(1).fadeIn('fast');
-        });
     } else {
-        $(document).ready(function () {
+
             $('#startMatchBtn').delay(1).fadeOut('fast');
-        });
-        $(document).ready(function () {
             $('#raidTime').delay(1).fadeOut('fast');
-        });
     }
 }
 
@@ -57,16 +53,10 @@ $("#startMatchBtn").click(function () {
 // This function shows the document start raid button that start the timer
 
 function displayStats() {
-    $(document).ready(function () {
         $('#checkItems').delay(1).fadeOut('fast');
-        $(document).ready(function () {
-            $('#raidTime').delay(1).fadeIn('fast');
-        });
-    });
-    $(document).ready(function () {
+        $('#raidTime').delay(1).fadeIn('fast');
         $('#startMatchBtn').delay(1).fadeOut('fast');
-    });
-}
+};
 
 // Event listner for after the timer started
 
@@ -102,15 +92,9 @@ function currentTime() {
 
 function resetMatchmake() {
     clearInterval(timerVariable);
-    $(document).ready(function () {
         $('#raidTime').delay(1).fadeOut('fast');
-    });
-    $(document).ready(function () {
         $('#startMatchBtn').delay(1).fadeIn('fast');
-    });
-    $(document).ready(function () {
         $('#checkItems').delay(1).fadeIn('fast');
-    });
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
@@ -124,18 +108,10 @@ function statDeadBtn() {
     var dlStat = false;
     raidTimeDisplay(dlStat, totalSeconds);
     clearInterval(timerVariable);
-    $(document).ready(function () {
         $('#raidReset').delay(1).fadeIn('fast');
-    });
-    $(document).ready(function () {
         $('#raidDeploying').delay(1).fadeIn('fast');
-    });
-    $(document).ready(function () {
-        $('#raidTime').delay(1).fadeOut('fast');
-    });
-    $(document).ready(function () {
         $('#checkItems').delay(1).fadeIn('fast');
-    });
+        $('#raidTime').delay(1).fadeOut('fast');
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
@@ -149,18 +125,10 @@ function statLiveBtn() {
     var dlStat = true;
     raidTimeDisplay(dlStat, totalSeconds);
     clearInterval(timerVariable);
-    $(document).ready(function () {
         $('#raidDeploying').delay(1).fadeIn('fast');
-    });
-    $(document).ready(function () {
         $('#raidReset').delay(1).fadeIn('fast');
-    });
-    $(document).ready(function () {
         $('#raidTime').delay(1).fadeOut('fast');
-    });
-    $(document).ready(function () {
         $('#checkItems').delay(1).fadeIn('fast');
-    });
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
@@ -179,12 +147,8 @@ function raidTimeDisplay(res, time) {
 }
 
 function deployingBtn() {
-    $(document).ready(function () {
         $('#raidDeploying').delay(1).fadeOut('fast');
-    });
-    $(document).ready(function () {
         $('#raidReset').delay(1).fadeOut('fast');
-    });
     deployTime = totalSeconds;
     deployTimeDisplay(deployTime);
 }
