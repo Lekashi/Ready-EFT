@@ -252,8 +252,6 @@ function updateLast10() {
 
 $("#carouselExampleFade").hide();
 
-
 $("#toggleMapBtn").click(function () {
     $("#carouselExampleFade").toggle('slow', function () { })
 });
-
