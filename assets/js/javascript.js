@@ -35,11 +35,11 @@ for (let i = 1; i < btnIndex; i++) {
 
 function startRaidBtn(res) {
     if (res === true) {
-            $('#startMatchBtn').delay(1).fadeIn('fast');
+        $('#startMatchBtn').delay(1).fadeIn('fast');
     } else {
 
-            $('#startMatchBtn').delay(1).fadeOut('fast');
-            $('#raidTime').delay(1).fadeOut('fast');
+        $('#startMatchBtn').delay(1).fadeOut('fast');
+        $('#raidTime').delay(1).fadeOut('fast');
     }
 }
 
@@ -53,9 +53,9 @@ $("#startMatchBtn").click(function () {
 // This function shows the document start raid button that start the timer
 
 function displayStats() {
-        $('#checkItems').delay(1).fadeOut('fast');
-        $('#raidTime').delay(1).fadeIn('fast');
-        $('#startMatchBtn').delay(1).fadeOut('fast');
+    $('#checkItems').delay(1).fadeOut('fast');
+    $('#raidTime').delay(1).fadeIn('fast');
+    $('#startMatchBtn').delay(1).fadeOut('fast');
 };
 
 // Event listner for after the timer started
@@ -92,9 +92,9 @@ function currentTime() {
 
 function resetMatchmake() {
     clearInterval(timerVariable);
-        $('#raidTime').delay(1).fadeOut('fast');
-        $('#startMatchBtn').delay(1).fadeIn('fast');
-        $('#checkItems').delay(1).fadeIn('fast');
+    $('#raidTime').delay(1).fadeOut('fast');
+    $('#startMatchBtn').delay(1).fadeIn('fast');
+    $('#checkItems').delay(1).fadeIn('fast');
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
@@ -108,10 +108,10 @@ function statDeadBtn() {
     var dlStat = false;
     raidTimeDisplay(dlStat, totalSeconds);
     clearInterval(timerVariable);
-        $('#raidReset').delay(1).fadeIn('fast');
-        $('#raidDeploying').delay(1).fadeIn('fast');
-        $('#checkItems').delay(1).fadeIn('fast');
-        $('#raidTime').delay(1).fadeOut('fast');
+    $('#raidReset').delay(1).fadeIn('fast');
+    $('#raidDeploying').delay(1).fadeIn('fast');
+    $('#checkItems').delay(1).fadeIn('fast');
+    $('#raidTime').delay(1).fadeOut('fast');
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
@@ -125,10 +125,10 @@ function statLiveBtn() {
     var dlStat = true;
     raidTimeDisplay(dlStat, totalSeconds);
     clearInterval(timerVariable);
-        $('#raidDeploying').delay(1).fadeIn('fast');
-        $('#raidReset').delay(1).fadeIn('fast');
-        $('#raidTime').delay(1).fadeOut('fast');
-        $('#checkItems').delay(1).fadeIn('fast');
+    $('#raidDeploying').delay(1).fadeIn('fast');
+    $('#raidReset').delay(1).fadeIn('fast');
+    $('#raidTime').delay(1).fadeOut('fast');
+    $('#checkItems').delay(1).fadeIn('fast');
     document.getElementById("count_up_timer").innerHTML = "0:0:0";
     totalSeconds = 0;
 }
@@ -147,8 +147,8 @@ function raidTimeDisplay(res, time) {
 }
 
 function deployingBtn() {
-        $('#raidDeploying').delay(1).fadeOut('fast');
-        $('#raidReset').delay(1).fadeOut('fast');
+    $('#raidDeploying').delay(1).fadeOut('fast');
+    $('#raidReset').delay(1).fadeOut('fast');
     deployTime = totalSeconds;
     deployTimeDisplay(deployTime);
 }
@@ -166,11 +166,12 @@ function deployTimeDisplay(res) {
 }
 
 function locStore(res, time) {
-    var newLocItem =  {res, time, deployTime};
-    oldLocItem = [ ...oldLocItem, newLocItem ];
+    var newLocItem = { res, time, deployTime };
+    oldLocItem = [...oldLocItem, newLocItem];
     console.log("set item to localstorage");
     console.log(oldLocItem);
-    localStorage.setItem('raids', JSON.stringify(oldLocItem));
+    localStorage.setItem('raids', JSON.stringify(oldLocItem))
+    updateLast10();
 }
 
 function init() {
@@ -190,6 +191,61 @@ function init() {
             $("#timeOfRaid").text(`Time of extract ${locTime}`);
         } else {
             $("#timeOfRaid").text(`Time of death ${locTime}`);
+        }
+        for (let i = 0; i < 10; i++) {
+            if (typeof oldLocItem[i] === 'undefined') {
+                console.log('oldLocItem showed up undefined');
+                return;
+            } else {
+                console.log(oldLocItem[i]);
+                var locHour = Math.floor(oldLocItem[i].time / 3600);
+                var locMinute = Math.floor((oldLocItem[i].time - locHour * 3600) / 60);
+                var locSeconds = oldLocItem[i].time - (locHour * 3600 + locMinute * 60)
+                var last10Time = `${locHour}:${locMinute}:${locSeconds}`;
+                console.log(last10Time);
+                if (oldLocItem[i].res === true) {
+                    if (typeof oldLocItem[i].deployTime === 'undefined') {
+                        $(`#lastRaid${i}`).text(`Time of extract ${last10Time}`);
+                    } else {
+                        $(`#lastRaid${i}`).text(`Time of extract ${last10Time}, MatchMake Time ${oldLocItem[i].deployTime}`);
+                    }
+                } else {
+                    if (typeof oldLocItem[i].deployTime === 'undefined') {
+                        $(`#lastRaid${i}`).text(`Time of death ${last10Time}`);
+                    } else {
+                        $(`#lastRaid${i}`).text(`Time of death ${last10Time}, MatchMake Time ${oldLocItem[i].deployTime}`);
+                    }
+                }
+            }
+        }
+    }
+}
+
+function updateLast10() {
+    for (let i = 0; i < 10; i++) {
+        if (typeof oldLocItem[i] === 'undefined') {
+            console.log('oldLocItem showed up undefined');
+            return;
+        } else {
+            console.log(oldLocItem[i]);
+            var locHour = Math.floor(oldLocItem[i].time / 3600);
+            var locMinute = Math.floor((oldLocItem[i].time - locHour * 3600) / 60);
+            var locSeconds = oldLocItem[i].time - (locHour * 3600 + locMinute * 60)
+            var last10Time = `${locHour}:${locMinute}:${locSeconds}`;
+            console.log(last10Time);
+            if (oldLocItem[i].res === true) {
+                if (typeof oldLocItem[i].deployTime === 'undefined') {
+                    $(`#lastRaid${i}`).text(`Time of extract ${last10Time}`);
+                } else {
+                    $(`#lastRaid${i}`).text(`Time of extract ${last10Time}, MatchMake Time ${oldLocItem[i].deployTime}`);
+                }
+            } else {
+                if (typeof oldLocItem[i].deployTime === 'undefined') {
+                    $(`#lastRaid${i}`).text(`Time of death ${last10Time}`);
+                } else {
+                    $(`#lastRaid${i}`).text(`Time of death ${last10Time}, MatchMake Time ${oldLocItem[i].deployTime}`);
+                }
+            }
         }
     }
 }
